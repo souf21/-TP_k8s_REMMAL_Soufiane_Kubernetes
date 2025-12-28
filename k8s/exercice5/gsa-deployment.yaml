@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gsa-deployment
+  labels:
+    app: gsa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gsa
+  template:
+    metadata:
+      labels:
+        app: gsa
+    spec:
+      containers:
+        - name: gsa
+          image: tristan12/gsa:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
