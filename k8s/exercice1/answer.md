@@ -1,13 +1,23 @@
 Exercice 1 :
+J’ai créé un fichier dans mon dossier exercice 1 nommé : welcome-deployment.yaml.
 
-I created a file inside of my execercice 1 folder named : welcome-deployment.yaml
+J’ai copié le contenu et j’ai appliqué mes modifications sur l’image : soufianeremmal/welcome-to-docker:v1.
 
-I copied the content and I applied my changes image: soufianeremmal/welcome-to-docker:v1
+J’ai appliqué cette configuration avec kubectl apply -f welcome-deployment.yaml dans le même dossier, puisque mon terminal se trouvait déjà dans le même répertoire.
 
-I applied this configuration kubectl apply -f welcome-deployment.yaml on the same folder because my terminal is in the same "répertoire" as well
+J’ai utilisé kubectl get pods pour voir les résultats.
 
-I used kubectl get pods to see the results
+Ensuite, j’ai supprimé le déploiement welcome-deployment avec :
+kubectl delete deployment welcome-deployment.
 
-Now welcome-deployment is deleted : kubectl delete deployment welcome-deployment
+En résumé, nous avons :
 
-we basically : - built our docker image - created our Kubernetes deployment yaml - applied the deployment - verified that our pods are created - deleted the deployment to reset the environment
+construit notre image Docker
+
+créé notre fichier YAML de déploiement Kubernetes
+
+appliqué le déploiement
+
+vérifié que les pods ont bien été créés
+
+supprimé le déploiement pour réinitialiser l’environnement

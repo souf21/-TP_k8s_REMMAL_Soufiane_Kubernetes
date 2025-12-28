@@ -1,18 +1,19 @@
-exercice 4
+Exercice 4
+J’ai créé un nouveau dossier et j’y ai copié mon fichier de déploiement, puis j’ai ajouté un nouveau fichier welcome-service.yaml.
 
-I have created a new folder and copied my deployment file inside and added a new file welcome-service.yaml
+J’ai ajouté le contenu YAML depuis le dépôt GitHub.
 
-I added the yaml content from GitHub repo
+Ce service nous permet d’accéder à nos pods depuis l’extérieur du cluster.
 
-this will help us access to our pods outside of our cluster
+Nous avons appliqué la configuration du service avec :
+kubectl apply -f welcome-service.yaml
 
-we applied configuration to our service using kubectl apply -f welcome-service.yaml
+Nous avons vérifié que le service avait bien été créé.
 
-we checked that our service was created
-
-I applied this code to connect to this service and open our application :
+J’ai ensuite utilisé cette commande pour me connecter au service et ouvrir l’application :
 kubectl port-forward svc/welcome-svc 8080:8080
 
-I chose 8080 as my local port, when I opened the link localhost:8080 my app worked
+J’ai choisi 8080 comme port local, et en ouvrant le lien localhost:8080, mon application fonctionnait.
 
-I deleted the service: kubectl delete service welcome-svc
+Enfin, j’ai supprimé le service avec :
+kubectl delete service welcome-svc

@@ -1,21 +1,25 @@
-Exercice 7:
+Erreurs dans le fichier de déploiement :
 
-Errors for deployment file:
-replicas was missplaced
+replicas était mal placé
 
-    container -> containers
+container → containers
 
-    deployment -> Deployment
+deployment → Deployment
 
-    labels:
-        appli: welcome  -> app: welcome
+labels:
 
-    image: tristan12/welcome-to-docker:tpexo12 -> image: tristan12/welcome-to-docker:v1
+appli: welcome → app: welcome
 
-Errors for service file:
-Nodeport -> NodePort
-targetPort: 8080 -> targetPort: 3000
-nodePort: 31000 was missing
+image: tristan12/welcome-to-docker:tpexo12 → image: tristan12/welcome-to-docker:v1
 
-    selector:
-    	  apply: welcome -> app: welcome
+Erreurs dans le fichier de service :
+
+Nodeport → NodePort
+
+targetPort: 8080 → targetPort: 3000
+
+nodePort: 31000 manquait
+
+selector:
+
+apply: welcome → app: welcome

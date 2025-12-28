@@ -1,30 +1,36 @@
-Exercice 6:
+Exercice 6 :
+J’ai apporté quelques modifications à mon image welcome-to-docker et je l’ai remplacée dans le dossier exercice6.
 
-I have made some changes to my welcome-to-docker image and replaced it in exercice6 folder
+J’ai exécuté cette commande pour construire mon image :
+docker build -t soufianeremmal/welcome-to-docker:v2 .
 
-I ran this command to build my image docker build -t soufianeremmal/welcome-to-docker:v2 .
+J’ai poussé l’image avec :
+docker push soufianeremmal/welcome-to-docker:v2
 
-I pushed the image using : docker push soufianeremmal/welcome-to-docker:v2
+J’ai copié le fichier welcome-deployment.yaml depuis l’exercice 5 et j’ai changé l’image.
 
-I copied welcome-deployment.yaml from exercice 5 and changed image
+J’ai appliqué le déploiement avec :
+kubectl apply -f welcome-deployment.yaml
 
-I applied deployment : kubectl apply -f welcome-deployment.yaml
+J’ai créé un nouveau service :
+kubectl apply -f welcome-service.yaml
 
-I created a new service : kubectl apply -f welcome-service.yaml
+Ensuite, j’ai ouvert mon projet avec :
+kubectl port-forward svc/welcome-svc 3003:8080
 
-And then I opened my project : kubectl port-forward svc/welcome-svc 3003:8080
+Voici les avantages et inconvénients de Kubernetes :
+Avantages
+Scalable : Kubernetes peut automatiquement scaler l’application et créer de nouveaux pods si nécessaire.
 
-These are advantages and disadvantages of Kubernetes
+Haute disponibilité : si un pod plante, Kubernetes le recrée pour garder l’application disponible.
 
-Advantages
+Mises à jour : on peut déployer de nouvelles versions sans interruption de service.
 
-Scalable: Kuberentes can automatically scale application and create new pods if needed
-High availability : if a pod craches it recreates it to keep app available
-updates: you can deploy new versions without downtime
+Inconvénients
+Complexité : il faut certaines compétences pour travailler avec Kubernetes.
 
-Disadvantages
-Complex: it require some skills to work with kubernetes
-restart: you always need to start when minikube when you turn off your machine
-not ideal for simple apps: for small apps with very little containers, Kubernetes may be too heavy
+Redémarrage : il faut relancer Minikube à chaque fois que la machine est éteinte.
 
-Kubernetes is the best solution of deployment for large and scalable projects but for small projects, docker will do the work
+Pas idéal pour les petites applications : pour des projets simples avec très peu de conteneurs, Kubernetes peut être trop lourd.
+
+Kubernetes est la meilleure solution de déploiement pour les projets larges et évolutifs, mais pour les petits projets, Docker suffit largement.

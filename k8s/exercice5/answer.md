@@ -1,15 +1,17 @@
 Exercice 5
+J’ai créé un nouveau dossier que j’ai nommé exercice 5.
 
-I created a new folder and named it exercice 5
+J’ai ajouté les fichiers de déploiement pour welcome-docker et gsa avec leurs images respectives.
 
-I added deployment files for both welcome-docker and gsa with their images
+J’ai créé des services afin de pouvoir ouvrir nos applications.
 
-I created services in order to open our apps
+Étapes pour qu’un service couvre un déploiement :
 
-steps for a service to cover a deployment
+créer les bons labels, car Kubernetes suit automatiquement les labels
 
-- create correct labels because kubernetes tracks labels automatically
-- create a service with selector matching the labels in the deployment file created
-- the service will hand us a stable ip and port where we can open our app
+créer un service avec un selector correspondant aux labels définis dans le fichier de déploiement
 
-a service can cover multiple pods, it is useful because when the same requests are distributed on all pods, even if a pod crashed or stopped working, other pods will still be running, therefore the application will always be available
+le service nous fournit une IP et un port stables pour accéder à notre application
+
+Un service peut couvrir plusieurs pods, ce qui est très utile : lorsque les mêmes requêtes sont distribuées sur tous les pods, même si un pod tombe en panne ou cesse de fonctionner, les autres pods continuent de tourner.
+Ainsi, l’application reste toujours disponible.

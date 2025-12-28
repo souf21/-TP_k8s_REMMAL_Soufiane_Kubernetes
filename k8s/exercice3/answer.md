@@ -1,17 +1,19 @@
 Exercice 3
+J’ai copié le même fichier welcome-deployment.yaml dans le nouveau dossier créé pour l’exercice 3.
 
-I copied the same welcome-deployment.yaml on the new folder created for exercice 3
+Ensuite, j’ai changé l’image vers tristan12/welcome-to-docker:v1.
 
-now I changed the image to tristan12/welcome-to-docker:v1
+J’ai appliqué le déploiement et vérifié mes pods : 1 pod a été créé.
 
-I applied the deployment and checked my pods, 1 pod was created
+J’ai supprimé ce pod avec la commande :
+kubectl delete pod welcome-deployment-865dd4c959-sjdj8
 
-I removed this pod using this command : kubectl delete pod welcome-deployment-865dd4c959-sjdj8
+Lorsque j’ai relancé la commande kubectl get pods, un pod apparaissait toujours, mais avec un nom différent.
+C’est normal : Kubernetes recrée automatiquement les pods lorsqu’ils sont supprimés, tant que le fichier welcome-deployment.yaml spécifie combien de pods doivent être présents.
 
-When I ran the command kubectl get pods it still showed me the pod created but with different name, that's because Kubernetes creates pods automatically when they are removed or deleted as long as we are specifying how many pods to be created in welcome-deployment.yaml
+Après avoir changé l’image vers tristan12/welcome-to-docker:latest et réappliqué le déploiement,
 
-After changing the image to tristan12/welcome-to-docker:latest and applying the deployment
+l’ancien pod utilisant la version v1 a été remplacé par un nouveau pod nommé :
+welcome-deployment-865dd4c959-s5k25
 
-our old pod from v1 was replaced by a new pod with the name : welcome-deployment-865dd4c959-s5k25
-
-Kubernetes terminates the pods and recreates new ones when you change the image
+Kubernetes termine les anciens pods et en recrée de nouveaux lorsque l’image est modifiée.

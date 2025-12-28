@@ -1,17 +1,15 @@
-Exercice 8:
+Exercice 8 :
+Pour l’instant, j’ai créé 3 fichiers : le deployment, le service et le configmap, puis je les ai appliqués.
 
-For now I created 3 files : deployment, service and configmap and applied them
+Lorsque j’ai exécuté kubectl apply -f logging-configmap.yaml, Kubernetes a créé mon ConfigMap.
 
-When I ran >kubectl apply -f logging-configmap.yaml, Kubernetes created my ConfigMap
+Cependant, j’ai remarqué plus tard que mes pods ne se mettaient pas automatiquement à jour.
+J’ai dû les supprimer pour qu’ils soient recréés avec la nouvelle configuration.
 
-However later I noticed that my pods are not updated automatically, I had to deleted so it can be created with new config
+La configuration ci‑dessous charge toutes les données du ConfigMap et place chaque clé dans le conteneur :
+envFrom: - configMapRef:
+name: data-configmap
 
-The configuration below loads all data from configmap and places each key inside the container
-envFrom:
+Si le ConfigMap contient plusieurs clés, toutes ces clés deviennent automatiquement des variables d’environnement.
 
-- configMapRef:
-  name: data-configmap
-
-if ConfigMap had multiple keys, all the keus will become environment variables automatically
-
-We use ConfigMap in order to avoid rebuilding Docker Image from scratch
+Nous utilisons un ConfigMap afin d’éviter de reconstruire l’image Docker depuis zéro.

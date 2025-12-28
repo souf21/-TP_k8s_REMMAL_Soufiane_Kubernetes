@@ -1,16 +1,15 @@
 Exercice 2
+J’ai créé un nouveau dossier pour l’exercice 2 et j’ai dupliqué le fichier welcome-deployment.yaml afin d’y apporter les modifications nécessaires.
 
-I created a new folder for exercice 2 and duplicated the welcome-deployment.yaml file in order to make these changes
+J’ai modifié le fichier pour créer 3 pods en ajoutant 3 replicas au lieu de 1.
 
-I changed the file to create 3 pods by adding 3 replicas instead of 1
+J’ai utilisé kubectl get pods pour vérifier que 3 pods avaient bien été créés.
 
-I used kubectl get pods to show me 3 pods created
+J’ai ensuite changé l’image du déploiement vers tristan12/123:latest, et lorsque j’ai utilisé la commande kubectl get pods, un nouvel avertissement est apparu : ErrImagePull.
 
-I changed the deployment image to tristan12/123:latest and when I used the command kubectl get pods it showed me a new error : ErrImagePull
-
-I used this command to show more details about this error :
+J’ai utilisé cette commande pour obtenir plus de détails sur l’erreur :
 kubectl describe pod welcome-deployment-7477d9997d-rzxw7
 
-It seems that this command shows all details about our pod including IP address 10.244.0.10
+Il semble que cette commande affiche toutes les informations concernant notre pod, y compris son adresse IP 10.244.0.10.
 
-Deployment is deleted now
+Le déploiement a ensuite été supprimé.

@@ -1,18 +1,18 @@
 Exercice 9 :
+J’ai créé un nouveau dossier pour l’exercice 9 où j’ai créé mon fichier de déploiement avec l’image tristan12/welcome-to-docker:typexo4.
 
-I created a new folder for exercice 9 where I created my deployment file with the tristan12/welcome-to-docker:typexo4 image
+J’ai mis à jour l’image en utilisant :
+kubectl set image deployments/welcome-deployment welcome=soufianeremmal/welcome-to-docker:v2
 
-I updated the image using : >kubectl set image deployments/welcome-deployment welcome=soufianeremmal/welcome-to-docker:v2
+J’ai vérifié la mise à jour avec :
+kubectl rollout status deployments/welcome-deployment
 
-I checked the updated with kubectl rollout status deployments/welcome-deployment
+rollout undo est la commande qui permet d’annuler les changements et de remettre l’ancienne image.
 
-rollout undo is the command to revert changes and put back the old image
+Avantages de l’utilisation de set image :
+cela peut être fait de manière fluide pendant que le déploiement reste disponible
 
-Advantages of using set image:
+on peut annuler les changements directement via les commandes
 
-this can be done smoothly while deployment is still available
-you can undo changes directly from commands
-
-Disadvantages
-
-Kubernetes doesn't have version tracking for updating images using set image
+Inconvénients :
+Kubernetes n’a pas de suivi de versions spécifique pour les mises à jour d’images faites avec set image

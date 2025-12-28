@@ -1,6 +1,6 @@
-Exercice 10:
+Exercice 10 :
+Qu’est‑ce que HorizontalPodAutoscaler :
 
-What HorizontalPodAutoscaler:
+Il est automatique : chaque fois que le déploiement a besoin de plus de pods, il les crée et augmente le nombre de replicas.
 
-- It is automatic, each time deployment needs more pods it creates the and increase replicas
-- When we don't need these pods anymore it reduces them automatically for less costs
+Lorsque ces pods ne sont plus nécessaires, il les réduit automatiquement afin de diminuer les coûts.
